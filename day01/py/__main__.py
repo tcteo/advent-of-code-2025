@@ -11,13 +11,14 @@ def read_input():
     lines = [l.strip() for l in f.read().splitlines() if l]
 
   rotations: Tuple[int, int] = []
-  for l in lines:
-    direction = {'L': -1, 'R': 1}[l[0]]
-    distance = int(l[1:])
+  for line in lines:
+    direction = {'L': -1, 'R': 1}[line[0]]
+    distance = int(line[1:])
     rotations.append((direction, distance))
 
   return rotations
-  
+
+
 def day1part1():
   print('day 1 part 1')
   rotations = read_input()
@@ -29,6 +30,7 @@ def day1part1():
     if pos == 0:
       password += 1
   print(f'{password=}')
+
 
 def day1part2():
   print('day 1 part 1')
@@ -46,4 +48,4 @@ def day1part2():
 
 if __name__ == '__main__':
   day1part1()
-  day1part2() 
+  day1part2()
