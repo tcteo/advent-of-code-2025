@@ -8,4 +8,4 @@ if [ -z "${day}" ]; then
 fi
 day="$(echo ${day} | awk -F '/' '{print $1}')"
 
-uv run python -m "${day}.py"
+uv run python -m "${day}.py" "$@"
