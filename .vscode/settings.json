@@ -1,0 +1,8 @@
+{
+    "editor.tabSize": 2,
+    "autopep8.args": [
+        "--indent-size=2",
+        "--ignore=E121"
+    ],
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python3"
+}
