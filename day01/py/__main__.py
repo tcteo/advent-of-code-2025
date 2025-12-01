@@ -33,7 +33,7 @@ def day1part1():
 
 
 def day1part2():
-  print('day 1 part 1')
+  print('day 1 part 2')
   rotations = read_input()
   password = 0
   pos = 50
