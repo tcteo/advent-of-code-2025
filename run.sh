@@ -2,20 +2,20 @@
 # usage: ./run.sh <impl> <day> [args...]
 #
 # eg.
-#   ./run.sh py day01
-#   ./run.sh go day01
+#   ./run.sh day01 py
+#   ./run.sh day01 go
 
-impl="$1"
-shift || true
 day="$1"
 shift || true
+impl="$1"
+shift || true
 
-if [ -z "${impl}" ]; then
-    echo 'need impl'
-    exit 1
-fi
 if [ -z "${day}" ]; then
     echo 'need day'
+    exit 1
+fi
+if [ -z "${impl}" ]; then
+    echo 'need impl'
     exit 1
 fi
 
