@@ -1,1 +1,9 @@
 /.venv
+/_ve
+*.pyc
+__pycache__
+/build
+/dist
+*.egg-info
+/.pytype
+uv.lock
