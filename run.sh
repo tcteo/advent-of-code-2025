@@ -1,5 +1,9 @@
 #!/bin/bash 
 # usage: ./run.sh <impl> <day> [args...]
+#
+# eg.
+#   ./run.sh py day01
+#   ./run.sh go day01
 
 impl="$1"
 shift || true
@@ -22,7 +26,7 @@ if [ ! -d "${day}" ]; then
 fi
 if [ ! -d "${day}/${impl}" ]; then
     echo "day ${day} implementation ${impl} not found"
-    exit 1u
+    exit 1
 fi
 
 case "${impl}" in
