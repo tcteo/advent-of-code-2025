@@ -33,17 +33,17 @@ def day3part1(filename):
   # print(inputlines)
   for line in inputlines:
     digits = [int(x) for x in list(line)]
-    print(digits)
+    # print(digits)
     # find max first digit (exclude last digit)
     max1 = max(digits[:-1])
     pos1 = digits[:-1].index(max1)
-    print(f'{max1=} {pos1=}')
+    # print(f'{max1=} {pos1=}')
     max2 = max(digits[pos1+1:])
     pos2 = pos1 + digits[pos1:].index(max2)
-    print(f'{max2=} {pos2=}')
-    max_joltage = max1 * 10 + max2
-    print(f'{max_joltage=}')
-    sum += max_joltage
+    # print(f'{max2=} {pos2=}')
+    bank_max_joltage = max1 * 10 + max2
+    # print(f'{max_joltage=}')
+    sum += bank_max_joltage
   print(f'{sum=}')
 
 
