@@ -13,8 +13,6 @@ def read_input(filename):
     return f.read().splitlines()
 
 
-
-
 def day2(filename, invalid_id_fn):
   print('day 2 part 1: ' + filename)
   ranges = read_input(filename)
@@ -29,6 +27,7 @@ def day2(filename, invalid_id_fn):
 
 
 def day3part1(filename):
+  print('day 3 part 1')
   sum = 0
   inputlines = read_input(filename)
   # print(inputlines)
@@ -39,7 +38,7 @@ def day3part1(filename):
     max1 = max(digits[:-1])
     pos1 = digits[:-1].index(max1)
     # print(f'{max1=} {pos1=}')
-    max2 = max(digits[pos1+1:])
+    max2 = max(digits[pos1 + 1:])
     pos2 = pos1 + digits[pos1:].index(max2)
     # print(f'{max2=} {pos2=}')
     bank_max_joltage = max1 * 10 + max2
@@ -47,7 +46,9 @@ def day3part1(filename):
     sum += bank_max_joltage
   print(f'{sum=}')
 
+
 def day3part2(filename):
+  print('day 3 part 2')
   sum = 0
   inputlines = read_input(filename)
   # print(inputlines)
@@ -59,34 +60,28 @@ def day3part2(filename):
     sum += maxvalue
   print(f'{sum=}')
 
-# def sum_digits(digits):
-#   tens = [10**n for n in range(0,len(digits))][::-1]
-#   return sum([x[0]*x[1] for x in zip(digits,tens)])
 
 def day3part2_max(digits, length):
-  # print(f'day3part2_max({digits}, {length}):')
-  if len(digits)<=0:
+  if len(digits) <= 0:
     raise RuntimeError("too short")
-  if len(digits)<length:
+  if len(digits) < length:
     raise RuntimeError("too short")
-  
+
   range_max = len(digits)
   while True:
     max_idx = np.argmax(digits[:range_max])
     max_val = digits[max_idx]
-    if length==1:
-      return max_val * (10**(length-1))
+    if length == 1:
+      return max_val * (10**(length - 1))
     try:
-      r = day3part2_max(digits[max_idx+1:], length-1)
-      return max_val * (10**(length-1)) + r
+      r = day3part2_max(digits[max_idx + 1:], length - 1)
+      return max_val * (10**(length - 1)) + r
     except RuntimeError:
       range_max = max_idx
-
-  # return sum_digits(digits) # TODO
 
 
 if __name__ == '__main__':
   # day3part1('example.txt')
-  # day3part1('input.txt')
+  day3part1('input.txt')
   # day3part2('example.txt')
   day3part2('input.txt')
