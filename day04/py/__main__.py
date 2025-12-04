@@ -41,10 +41,28 @@ def day4part1(filename):
   # lt4 = sum([(x<4) for r in roll_neighbour_counts for x in r])
   print(f'rolls with less than 4 neighbours: {lt4_count}')
 
+def day4part2(filename):
+
+  print(f'day 4 part 2: {filename}')
+  matrix = read_input(filename)
+  num_removed = 0
+  while True:
+    k = np.array([[1,1,1],[1,0,1],[1,1,1]], dtype=np.int8)
+    c = scipy.signal.convolve2d(matrix, k, mode='same')
+    c_lt4 = c < 4
+    yes = np.multiply(c_lt4, matrix)
+    lt4_count = np.sum(yes)
+    if lt4_count == 0:
+      break
+    # remove those
+    num_removed += lt4_count
+    matrix = np.subtract(matrix, yes)
+  print(f'total removed {num_removed}')
 
 
 if __name__ == '__main__':
   day4part1('example.txt')
   day4part1('input.txt')
-  # day4part2('example.txt')
-  # day4part2('input.txt')
+  print('--')
+  day4part2('example.txt')
+  day4part2('input.txt')
